@@ -29,87 +29,105 @@
         <button class="btn btn-primary" type="button">Search</button>
 
       </div>
-    <div class = "container row col-12">
-    <div class="card" style="width: 18rem;">
+
+      <div id = "current-weather">
+        <div class="card" style="width: 18rem;">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body">
+              <h5 class="card-title">Current Weather</h5>
+              <h5 id="city"></h5>
+              <p id="current-date"></p>
+              <p id="humidity"></p>
+              <p id="wind-speed"></p>      
+            
+            </div>
+            <ul class="list-group list-group-flush">
+        
+              <li id="current-weather"></li>
+              <li id=""></li>
+              <li class="list-group-item"></li>
+            </ul>
+          </div>
+
+
+      </div>
+
+
+      <section class="5-day row col-lg-12">
+      
+      <div class="card" style="width: 18rem;">
         <!-- <img src="..." class="card-img-top" alt="..."> -->
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title"></h5>
+          <p id="date-one"></p>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
+        <ul class="list-group list-group-flush" style="list-style: none;">
+          <li id="temp-one"></li>
+          <li id="desc-one"></li>
+          <li class="list-group-item"></li>
         </ul>
-        <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>
       </div>
       <div class="card" style="width: 18rem;">
         <!-- <img src="..." class="card-img-top" alt="..."> -->
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title"></h5>
+          <p id="date-two"></p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
+          <li id="temp-two"></li>
+          <li id="desc-two"></li>
+          <li class="list-group-item"></li>
         </ul>
-        <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>
-      </div>    <div class="card" style="width: 18rem;">
-        <!-- <img src="..." class="card-img-top" alt="..."> -->
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
-        </ul>
-        <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>
-      </div>    <div class="card" style="width: 18rem;">
-        <!-- <img src="..." class="card-img-top" alt="..."> -->
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
-        </ul>
-        <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>
-      </div>    <div class="card" style="width: 18rem;">
-        <!-- <img src="..." class="card-img-top" alt="..."> -->
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
-        </ul>
-        <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>
       </div>
-    </div>
+      <div class="card" style="width: 18rem;">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p id="date-three"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li id="temp-three"></li>
+          <li id="desc-three"></li>
+          <li class="list-group-item"></li>
+        </ul>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p id="date-four"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li id="temp-four"></li>
+          <li id="desc-four"></li>
+          <li class="list-group-item"></li>
+        </ul>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p id="date-five"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li id="temp-five"></li>
+          <li id="desc-five"></li>
+          <li class="list-group-item"></li>
+        </ul>
+      </div>
+      
+    </section>
 
-    </div>
+
+<!-- 
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search City" aria-label="Recipient's username" aria-describedby="button-addon2">
+    </div>    
+      <div class="d-grid gap-2">
+        <button class="btn btn-primary" type="button">Search</button>  
+      </div> -->
+
+
 
 
 
