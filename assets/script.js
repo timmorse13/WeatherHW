@@ -72,8 +72,7 @@ function getWeather(input) {
 
 }
 
-getWeather(searchTerm) 
-currentWeather(searchTerm)       
+    
 console.log(searchTerm)
 
 buttonEl.addEventListener("click", function(e) {
@@ -81,4 +80,6 @@ buttonEl.addEventListener("click", function(e) {
         var value = inputEl.value;
         localStorage.setItem("searchValue", value);       
         // console.log(value);
+        getWeather(searchTerm) 
+        currentWeather(searchTerm)   
     })
