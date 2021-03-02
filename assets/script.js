@@ -17,17 +17,42 @@ function currentWeather(input) {
         return response.json()
     })
     .then(function(data) {
-        var current = data.main.temp;
-        var city = data.name
-        var currentDate = data.dt
-        var currentHumidity = data.main.humidity
-        var currentWS = data.wind[1]
-        console.log(data)
-        currentW.append(current)
 
-        currentDateEl.append(currentDate)
-        currentHMD.append(currentHumidity)
-        currentWindSpd.append(currentWS)
+        var cwIcon = data.weather[0].icon; 
+        var cwDiv = $("<div>");
+        var iconURL = "http://openweathermap.org/img/wn/" + cwIcon + ".png";
+        var cwCity = $("<p>");
+        var cwWind = $("<p>");
+        var cwTemp = $("<p>");
+        var cwImg = $("<img>");
+        
+        cwCity.text(data.name);
+        cwTemp.text("Temp: " + data.main.temp);
+        cwWind.text("Wind: " + data.wind.speed);
+        cwImg.attr("src", cwIcon);
+        cwImg.attr("alt", "weather-icon");
+        cwDiv.addClass('col-12 col-md-2');
+        cwDiv.css('background-color', '#eae0e0').css('margin', '2px').css('border-radius', '5px').css('text-align', 'center');
+
+        cwDiv.append(cwCity);
+        cwDiv.append(cwImg);
+        cwDiv.append(cwTemp);
+        cwDiv.append(cwWind);
+
+
+        // var current = data.main.temp;
+        // var city = data.name
+        // var currentDate = data.dt
+        // var currentHumidity = data.main.humidity
+        // var currentWS = data.wind[1]
+        console.log(data)
+        currentW.append(cwDiv)
+
+        
+
+        // currentDateEl.append(currentDate)
+        // currentHMD.append(currentHumidity)
+        // currentWindSpd.append(currentWS)
 
     })
 }
