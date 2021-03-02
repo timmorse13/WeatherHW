@@ -1,5 +1,5 @@
 var inputEl = document.querySelector(".form-control");
-var buttonEl = document.querySelector(".btn")
+var buttonEl = document.querySelector(".btn-primary")
 var resultsEl = $("#results");
 var currentDateEl = $("#current-date")
 var cityEl = $("#city")
