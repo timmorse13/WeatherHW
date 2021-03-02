@@ -12,7 +12,7 @@ var searchTerm = localStorage.getItem("searchValue") || ""
 
 
 function currentWeather(input) {
-    fetch("http://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=imperial&APPID=57d7bbe8e038b282feb0c589ab398101")
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=imperial&APPID=57d7bbe8e038b282feb0c589ab398101")
     .then(function(response) {
         return response.json()
     })
@@ -28,11 +28,12 @@ function currentWeather(input) {
         currentDateEl.append(currentDate)
         currentHMD.append(currentHumidity)
         currentWindSpd.append(currentWS)
+
     })
 }
 
 function getWeather(input) {
-    var baseWURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + input + "&units=imperial&APPID=57d7bbe8e038b282feb0c589ab398101"; 
+    var baseWURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + input + "&units=imperial&APPID=57d7bbe8e038b282feb0c589ab398101"; 
     fetch(baseWURL)
     .then(function(response) {
         return response.json()
@@ -63,7 +64,6 @@ function getWeather(input) {
             
             weatherResults.append(weatherDiv);
             resultsEl.append(weatherResults);
-        console.log(data)  
         }
        
     })    
