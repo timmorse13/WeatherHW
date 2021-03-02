@@ -1,28 +1,14 @@
 var inputEl = document.querySelector(".form-control");
 var buttonEl = document.querySelector(".btn")
 var resultsEl = $("#results");
-var tempOne = $("#temp-one");
-var tempTwo = $("#temp-two");
-var tempThree = $("#temp-three");
-var tempFour = $("#temp-four");
-var tempFive = $("#temp-five")
-var descOne = $("#desc-one");
-var descTwo = $("#desc-two");
-var descThree = $("#desc-three");
-var descFour = $("#desc-four");
-var descFive = $("#desc-five");
+var currentDateEl = $("#current-date")
 var cityEl = $("#city")
 var currentW = $("#current-weather");
+var currentHMD = $("#current-humidity")
 var currentWindSpd = $("#wind-speed")
-var currentDateEl = $("#current-date")
-var currentHMD = $("#humidity")
-var dateOne = $("#date-one")
-var dateTwo = $("#date-two")
-var dateThree = $("#date-three")
-var dateFour = $("#date-four")
-var dateFive = $("#date-five")
-
+var weatherResults = $("#weather-results")
 var searchTerm = localStorage.getItem("searchValue") || ""
+
 
 
 function currentWeather(input) {
@@ -44,69 +30,55 @@ function currentWeather(input) {
         currentWindSpd.append(currentWS)
     })
 }
-// city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-
-currentWeather(searchTerm)
 
 function getWeather(input) {
-    var baseWURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + input + "&units=imperial&APPID=57d7bbe8e038b282feb0c589ab398101"; 
+    var baseWURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + input + "&units=imperial&APPID=2ac1259b720a1255fc6e48f2d466be01"; 
     fetch(baseWURL)
     .then(function(response) {
         return response.json()
         })
     .then(function(data) {
-         
-            var temp = data.list[0].main.temp;
-            var sky = data.list[0].weather[0].description;
-            var weatherDate = data.list[0].dt_txt.substring(0,10);
-            var weatherIcon = data.list[0].weather[0].icon;
+        for(var i = 0; i < data.list.length; i += 8) {
+           
+            var weatherIcon = data.list[i].weather[0].icon;
             var iconURL = "http://openweathermap.org/img/wn/" + weatherIcon + ".png"
+            var weatherDiv = $('<div>')
+            var weatherDate = $('<p>')
             var imgEl = $("<img>");
-            imgEl.attr("src", iconURL);
-            imgEl.attr("alt", "weather-icon");
-            // $(".weather-icon").attr("src", iconURL)
-            // var temp = document.createElement("p");
-            // temp.textContent = data.list[0].main.temp;
-            // document.main.appendChild(temp)
-            // create a for loop to populate the 5 day forecast. cycle 0-5 under list array
-            console.log(temp);
-            resultsEl.append(imgEl)
+            var HumEl = $('<p>');
+            var tempEl = $('<p>');
             
-        console.log(data);
+            HumEl.text("Humidity: ").html(HumEl.html() +  data.list[i].main.humidity ).css('padding', 0);
+            tempEl.text("Temp: " + data.list[i].main.temp).css('padding', 0);
+            weatherDate.text(data.list[i].dt_txt.substring(0,10))
+            imgEl.attr("src", iconURL).css('padding', 0);
+            imgEl.attr("alt", "weather-icon");
+            weatherDiv.addClass('col-12 col-md-2')
+            weatherDiv.css('background-color', '#eae0e0').css('margin', '2px').css('border-radius', '5px').css('text-align', 'center');
 
-        tempOne.append(data.list[0].main.temp)
-        tempTwo.append(data.list[8].main.temp)
-        tempThree.append(data.list[16].main.temp)
-        tempFour.append(data.list[24].main.temp)
-        tempFive.append(data.list[32].main.temp)
-
-
-        descOne.append(data.list[0].weather[0].description)
-        descTwo.append(data.list[8].weather[0].description)
-        descThree.append(data.list[16].weather[0].description)
-        descFour.append(data.list[24].weather[0].description)
-        descFive.append(data.list[32].weather[0].description)
-
-        dateOne.append(data.list[0].dt_txt.substring(0,10))
-        dateTwo.append(data.list[8].dt_txt.substring(0,10))
-        dateThree.append(data.list[16].dt_txt.substring(0,10))
-        dateFour.append(data.list[24].dt_txt.substring(0,10))
-        dateFive.append(data.list[32].dt_txt.substring(0,10))
-
-
+            weatherDiv.append(weatherDate);
+            weatherDiv.append(imgEl);
+            weatherDiv.append(tempEl);
+            weatherDiv.append(HumEl);
+            
+            weatherResults.append(weatherDiv);
+            resultsEl.append(weatherResults);
+        console.log(data)  
+        }
+       
     })    
-    };
-
-    getWeather(searchTerm)
-    console.log(searchTerm)
 
 
-        
+
+}
+
+getWeather(searchTerm) 
+currentWeather(searchTerm)       
+console.log(searchTerm)
+
 buttonEl.addEventListener("click", function(e) {
         e.preventDefault();
         var value = inputEl.value;
-        localStorage.setItem("searchValue", value);
-        // getHotels(value);
+        localStorage.setItem("searchValue", value);       
         // console.log(value);
-        // window.location.href = "result.html" 
     })
