@@ -12,7 +12,7 @@ var searchTerm = localStorage.getItem("searchValue") || ""
 
 
 function currentWeather(input) {
-    fetch("http://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=imperial&APPID=57d7bbe8e038b282feb0c589ab398101")
+    fetch("http://api.openweathermap.org/data/2.5/weather?q=" + input + "&units=imperial&APPID=2ac1259b720a1255fc6e48f2d466be01")
     .then(function(response) {
         return response.json()
     })
